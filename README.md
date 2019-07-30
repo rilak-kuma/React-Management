@@ -1,5 +1,5 @@
 ## THIS IS REACT MANAGEMENT SYSTEM
-at a loss~~~~~~===================!
+at a loss~~~~~~===================+!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
