@@ -20,34 +20,50 @@ const styles = theme => ({
   }
 })
 
-const customers = [
-  {
-    'id': 1,
-    'image': 'https://placeimg.com/64/64/1',
-    'name': '홍리나',
-    'birthday': '20021010',
-    'gender': 'femail',
-    'job': 'student'
-  },
-  {
-    'id': 2,
-    'image': 'https://placeimg.com/64/64/2',
-    'name': '홍나리',
-    'birthday': '20021010',
-    'gender': 'femail',
-    'job': 'student'
-  },
-  {
-    'id': 3,
-    'image': 'https://placeimg.com/64/64/3',
-    'name': '홍국일',
-    'birthday': '20021010',
-    'gender': 'femail',
-    'job': 'doctor'
-  }
-]
-
+// const customers = [
+//   {
+//     'id': 1,
+//     'image': 'https://placeimg.com/64/64/1',
+//     'name': '홍리나',
+//     'birthday': '20021010',
+//     'gender': 'femail',
+//     'job': 'student'
+//   },
+//   {
+//     'id': 2,
+//     'image': 'https://placeimg.com/64/64/2',
+//     'name': '홍나리',
+//     'birthday': '20021010',
+//     'gender': 'femail',
+//     'job': 'student'
+//   },
+//   {
+//     'id': 3,
+//     'image': 'https://placeimg.com/64/64/3',
+//     'name': '홍국일',
+//     'birthday': '2002101011',
+//     'gender': 'femail',
+//     'job': 'doctor'
+//   }
+// ];
 class App extends Component {
+
+  state = {
+    customers: ""
+  }
+
+  componentDidMount() {
+    this.callApi()
+    .then(res => this.setState({customers: res}))
+    .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/customers');
+    const body = await response.json();
+    return body;
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -66,7 +82,7 @@ class App extends Component {
           </TableHead>
         <TableBody>
         {
-          customers.map(c => {
+          this.state.customers ? this.state.customers.map(c => {
             return (
               <Customer
                 key={c.id}
@@ -79,7 +95,7 @@ class App extends Component {
               />
             );
 
-          })}
+          }) : "" }
           </TableBody>
           </Table>
       </Paper>
