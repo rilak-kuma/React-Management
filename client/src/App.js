@@ -8,21 +8,20 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import circularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing(3),
     overflowX: 'auto'
   },
   table: {
     minWidth: 1080
   },
   progress: {
-    margin: theme.spacing.unit * 2
+    margin: theme.spacing(2)
   }
 })
 
@@ -140,7 +139,7 @@ class App extends Component {
 
           }) : 
           <TableRow>
-            <TableCell colspan="6" align="center">
+            <TableCell colSpan="6" align="center">
               <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed}/>
             </TableCell>
           </TableRow>
