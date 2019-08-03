@@ -165,14 +165,15 @@ class App extends Component {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
-              <InputBase placeholder="검색하기.."
+              <InputBase
+                placeholder="검색하기.."
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
-                name="searchKeyword" 
-                value={this.state.searchKeyword}
-                onChange={this.handleValueChange}
+                name="serchKeyword" 
+                value={this.state.searchKeyword} 
+                onChange={this.handleValueChange} 
               />
             </div>
           </Toolbar>
